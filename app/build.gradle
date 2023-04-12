@@ -1,0 +1,62 @@
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin.android
+}
+
+android {
+    namespace 'com.maasbodev.rickandmorty'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.maasbodev.rickandmorty"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.1'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation libs.androidx.coreKtx
+    implementation libs.compose.activity
+    implementation libs.lifecycle.runtimeKtx
+    implementation libs.bundles.compose
+    implementation libs.compose.material
+
+    testImplementation libs.junit
+    androidTestImplementation libs.android.test.compose
+    androidTestImplementation libs.android.test.espresso
+    androidTestImplementation libs.android.test.junit
+    debugImplementation libs.compose.ui.test.manifest
+    debugImplementation libs.compose.ui.tooling.test
+}

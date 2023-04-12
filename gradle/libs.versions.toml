@@ -1,0 +1,33 @@
+[versions]
+compose = "1.4.1"
+composeActivity = "1.7.0"
+coreKtx = "1.10.0"
+espresso = "3.5.1"
+gradleplugin = "7.4.2"
+junit = "4.13.2"
+kotlin = "1.8.0"
+lifecycle = "2.6.1"
+material = "1.0.1"
+testJunit = "1.1.5"
+
+[libraries]
+android-test-compose = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+android-test-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+android-test-junit = { module = "androidx.test.ext:junit", version.ref = "testJunit" }
+androidx-coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
+compose-material = { module = "androidx.compose.material3:material3", version.ref = "material" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-ui-tooling-test = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+junit = { module = "junit:junit", version.ref = "junit" }
+lifecycle-runtimeKtx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+
+[bundles]
+compose = ["compose-ui", "compose-ui-tooling-preview"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradleplugin" }
+android-library = { id = "com.android.library", version.ref = "gradleplugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
