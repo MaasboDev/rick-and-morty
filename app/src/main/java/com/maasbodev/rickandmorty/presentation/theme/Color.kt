@@ -1,4 +1,4 @@
-package com.maasbodev.rickandmorty.ui.theme
+package com.maasbodev.rickandmorty.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

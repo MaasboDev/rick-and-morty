@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rick and Morty</string>
+    <string name="download_error">Error downloading data</string>
+    <string name="home_screen_title">CHARACTERS</string>
 </resources>
