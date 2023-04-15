@@ -2,7 +2,6 @@ package com.maasbodev.rickandmorty.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.maasbodev.rickandmorty.data.remote.model.OriginLocationObject
 
 @Entity
 data class CharacterDbModel(
@@ -13,8 +12,10 @@ data class CharacterDbModel(
     val species: String,
     val type: String,
     val gender: String,
-    val origin: OriginLocationObject,
-    val location: OriginLocationObject,
+    val originName: String,
+    val originUrl: String,
+    val locationName: String,
+    val locationUrl: String,
     val image: String,
     val episode: List<String>,
     val url: String,

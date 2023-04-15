@@ -1,6 +1,7 @@
 package com.maasbodev.rickandmorty.data.local
 
 import com.maasbodev.rickandmorty.data.remote.model.CharacterDto
+import com.maasbodev.rickandmorty.data.remote.model.OriginLocationObject
 import com.maasbodev.rickandmorty.domain.model.Character
 
 fun CharacterDto.toCharacterDbModel(): CharacterDbModel = CharacterDbModel(
@@ -10,8 +11,10 @@ fun CharacterDto.toCharacterDbModel(): CharacterDbModel = CharacterDbModel(
     species = species,
     type = type,
     gender = gender,
-    origin = origin,
-    location = location,
+    originName = origin.name,
+    originUrl = origin.url,
+    locationName = location.name,
+    locationUrl = location.url,
     image = image,
     episode = episode,
     url = url,
@@ -25,8 +28,8 @@ fun CharacterDbModel.toCharacter(): Character = Character(
     species = species,
     type = type,
     gender = gender,
-    origin = origin,
-    location = location,
+    origin = OriginLocationObject(originName, originUrl),
+    location = OriginLocationObject(locationName, locationUrl),
     image = image,
     episode = episode,
     url = url,

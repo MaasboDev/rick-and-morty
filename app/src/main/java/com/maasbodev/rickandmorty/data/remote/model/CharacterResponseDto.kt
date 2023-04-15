@@ -1,6 +1,6 @@
 package com.maasbodev.rickandmorty.data.remote.model
 
-data class CharacterResultDto(
+data class CharacterResponseDto(
     val info: InfoDto,
     val results: List<CharacterDto>,
 )
