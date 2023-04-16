@@ -55,6 +55,7 @@ dependencies {
     implementation libs.androidx.hilt.navigation
     implementation libs.androidx.paging
     implementation libs.androidx.paging.compose
+    implementation libs.androidx.paging.commons
     implementation libs.arrow.core
     implementation libs.arrow.fx.coroutines
     implementation libs.bundles.compose
@@ -63,8 +64,12 @@ dependencies {
     implementation libs.compose.activity
     implementation libs.compose.material
     implementation libs.compose.material3
+    implementation libs.kluent.kluent
+    implementation libs.kotlin.coroutines.test
     implementation libs.lifecycle.runtime
     implementation libs.lifecycle.viewmodel
+    implementation libs.mockk.mockk
+    implementation libs.mockk.android
     implementation libs.moshi.moshi
     implementation libs.room.paging
     implementation libs.room.ktx
