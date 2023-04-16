@@ -53,8 +53,8 @@ The following libraries are used in the project:
 
 ## Screenshots
 
-![Image](app/src/main/res/drawable/homescreen.png)
-![Image](app/src/main/res/drawable/detailscreen.png)
+<img src="app/src/main/res/drawable/homescreen.png" width="300">  
+<img src="app/src/main/res/drawable/detailscreen.png" width="300">  
 
 ## License
 
