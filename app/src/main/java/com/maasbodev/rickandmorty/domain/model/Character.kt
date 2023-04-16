@@ -1,7 +1,5 @@
 package com.maasbodev.rickandmorty.domain.model
 
-import com.maasbodev.rickandmorty.data.remote.model.OriginLocationObject
-
 data class Character(
     val id: Int,
     val name: String,
@@ -9,8 +7,10 @@ data class Character(
     val species: String,
     val type: String,
     val gender: String,
-    val origin: OriginLocationObject,
-    val location: OriginLocationObject,
+    val originName: String,
+    val originUrl: String,
+    val locationName: String,
+    val locationUrl: String,
     val image: String,
     val episode: List<String>,
     val url: String,

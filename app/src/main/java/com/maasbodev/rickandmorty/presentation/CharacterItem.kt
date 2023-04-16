@@ -2,27 +2,28 @@ package com.maasbodev.rickandmorty.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
-import com.maasbodev.rickandmorty.data.remote.model.OriginLocationObject
 import com.maasbodev.rickandmorty.domain.model.Character
 import com.maasbodev.rickandmorty.presentation.theme.RickAndMortyTheme
-import com.maasbodev.rickandmorty.presentation.theme.Spacing.s144
 import com.maasbodev.rickandmorty.presentation.theme.Spacing.s16
 import com.maasbodev.rickandmorty.presentation.theme.Spacing.s4
+import com.maasbodev.rickandmorty.presentation.theme.Spacing.s8
 
 @Composable
 fun CharacterItem(
@@ -32,28 +33,48 @@ fun CharacterItem(
     Card(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(s4),
+        shape = RoundedCornerShape(s4)
     ) {
-        Column(
+        Row(
             modifier = Modifier
-                .fillMaxHeight()
-                .height(IntrinsicSize.Max)
-                .padding(s16),
+                .fillMaxWidth()
+                .height(IntrinsicSize.Max),
         ) {
             AsyncImage(
                 model = character.image,
                 contentDescription = character.name,
                 modifier = Modifier
+                    .aspectRatio(1f)
                     .weight(1f)
-                    .height(s144),
+                    .fillMaxHeight(),
             )
             Spacer(modifier = Modifier.width(s16))
-            Text(
-                text = character.name,
-                style = MaterialTheme.typography.displayLarge,
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                textAlign = TextAlign.Center,
-            )
+                    .weight(3f)
+                    .fillMaxHeight(),
+            ) {
+                Text(
+                    text = character.name,
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Spacer(modifier = Modifier.height(s4))
+                Text(
+                    text = character.status,
+                    style = MaterialTheme.typography.labelLarge,
+                )
+                Spacer(modifier = Modifier.height(s8))
+                Text(
+                    text = "Last known location:",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = Color.Gray,
+                )
+                Spacer(modifier = Modifier.height(s4))
+                Text(
+                    text = character.locationName,
+                    style = MaterialTheme.typography.labelLarge,
+                )
+            }
         }
     }
 }
@@ -70,8 +91,10 @@ fun CharacterItemPreview() {
                 species = "Human Human Human Human Human Human Human \n Human Human Human Human",
                 type = "Unknown type",
                 gender = "Male",
-                origin = OriginLocationObject("Alien Spa", "https"),
-                location = OriginLocationObject("Earth", "https"),
+                originName = "Alien Spa",
+                originUrl = "https",
+                locationName = "Earth",
+                locationUrl = "https",
                 image = "https",
                 episode = emptyList(),
                 url = "https",
