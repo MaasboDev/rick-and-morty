@@ -14,6 +14,9 @@ interface CharacterDao {
     @Query("SELECT * FROM CharacterDbModel")
     fun pagingSource(): PagingSource<Int, CharacterDbModel>
 
+    @Query("SELECT * FROM CharacterDbModel WHERE id = :id")
+    fun findById(id: Int): CharacterDbModel
+
     @Query("DELETE FROM CharacterDbModel")
     suspend fun clearAll()
 }

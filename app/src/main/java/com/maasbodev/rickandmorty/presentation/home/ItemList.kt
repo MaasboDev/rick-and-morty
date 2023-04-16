@@ -1,4 +1,4 @@
-package com.maasbodev.rickandmorty.presentation
+package com.maasbodev.rickandmorty.presentation.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,14 +9,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.navigation.NavHostController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.maasbodev.rickandmorty.domain.model.Character
+import com.maasbodev.rickandmorty.presentation.detail.DetailViewModel
 import com.maasbodev.rickandmorty.presentation.theme.Spacing
 import java.util.Locale
 
 @Composable
 fun ItemList(
+    detailViewModel: DetailViewModel,
+    navController: NavHostController,
     state: MutableState<TextFieldValue>,
     characterPagingItems: LazyPagingItems<Character>
 ) {
@@ -25,7 +29,7 @@ fun ItemList(
     val characters = characterPagingItems.itemSnapshotList.items
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(Spacing.s16)
+        verticalArrangement = Arrangement.spacedBy(Spacing.s16),
     ) {
         val searchedText = state.value.text
         filteredItems = if (searchedText.isEmpty()) {
@@ -40,7 +44,11 @@ fun ItemList(
             resultList
         }
         items(filteredItems) { filteredItem ->
-            CharacterItem(character = filteredItem)
+            CharacterItem(
+                character = filteredItem,
+                detailViewModel = detailViewModel,
+                navController = navController,
+            )
         }
         item {
             if (characterPagingItems.loadState.append is LoadState.Loading) {

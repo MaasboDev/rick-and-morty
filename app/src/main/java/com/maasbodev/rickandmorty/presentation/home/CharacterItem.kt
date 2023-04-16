@@ -1,4 +1,4 @@
-package com.maasbodev.rickandmorty.presentation
+package com.maasbodev.rickandmorty.presentation.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -12,28 +12,40 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.maasbodev.rickandmorty.domain.model.Character
+import com.maasbodev.rickandmorty.presentation.detail.DetailViewModel
+import com.maasbodev.rickandmorty.presentation.navigation.DETAIL_SCREEN
+import com.maasbodev.rickandmorty.presentation.navigation.navToDetail
 import com.maasbodev.rickandmorty.presentation.theme.RickAndMortyTheme
 import com.maasbodev.rickandmorty.presentation.theme.Spacing.s16
 import com.maasbodev.rickandmorty.presentation.theme.Spacing.s4
 import com.maasbodev.rickandmorty.presentation.theme.Spacing.s8
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterItem(
     character: Character,
+    detailViewModel: DetailViewModel,
+    navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(s4),
-        shape = RoundedCornerShape(s4)
+        shape = RoundedCornerShape(s4),
+        onClick = {
+            detailViewModel.findById(character.id)
+            navToDetail(navController, DETAIL_SCREEN)
+        }
     ) {
         Row(
             modifier = Modifier
@@ -83,7 +95,7 @@ fun CharacterItem(
 @Composable
 fun CharacterItemPreview() {
     RickAndMortyTheme {
-        CharacterItem(
+        /*CharacterItem(
             character = Character(
                 id = 1,
                 name = "Character",
@@ -101,6 +113,6 @@ fun CharacterItemPreview() {
                 created = "Timestamp",
             ),
             modifier = Modifier.fillMaxWidth()
-        )
+        )*/
     }
 }

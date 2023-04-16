@@ -1,4 +1,4 @@
-package com.maasbodev.rickandmorty.presentation
+package com.maasbodev.rickandmorty.presentation.home
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -9,10 +9,10 @@ import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
@@ -29,7 +29,7 @@ fun SearchView(state: MutableState<TextFieldValue>) {
             state.value = value
         },
         modifier = Modifier.fillMaxWidth(),
-        textStyle = TextStyle(color = Color.White, fontSize = f18),
+        textStyle = TextStyle(color = MaterialTheme.colorScheme.onBackground, fontSize = f18),
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,

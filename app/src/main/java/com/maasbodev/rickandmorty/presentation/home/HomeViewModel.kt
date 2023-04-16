@@ -1,4 +1,4 @@
-package com.maasbodev.rickandmorty.presentation
+package com.maasbodev.rickandmorty.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,7 +12,7 @@ import javax.inject.Inject
 import kotlinx.coroutines.flow.map
 
 @HiltViewModel
-class CharacterViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
     pager: Pager<Int, CharacterDbModel>,
 ) : ViewModel() {
 

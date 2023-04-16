@@ -1,4 +1,4 @@
-package com.maasbodev.rickandmorty
+package com.maasbodev.rickandmorty.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,9 +8,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.paging.compose.collectAsLazyPagingItems
-import com.maasbodev.rickandmorty.presentation.CharacterScreen
-import com.maasbodev.rickandmorty.presentation.CharacterViewModel
+import androidx.navigation.compose.rememberNavController
+import com.maasbodev.rickandmorty.presentation.detail.DetailViewModel
+import com.maasbodev.rickandmorty.presentation.home.HomeViewModel
+import com.maasbodev.rickandmorty.presentation.navigation.NavGraph
 import com.maasbodev.rickandmorty.presentation.theme.RickAndMortyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,9 +26,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background,
                 ) {
-                    val viewModel = hiltViewModel<CharacterViewModel>()
-                    val characters = viewModel.characterPagingFlow.collectAsLazyPagingItems()
-                    CharacterScreen(characters = characters)
+                    val navController = rememberNavController()
+                    val homeViewModel = hiltViewModel<HomeViewModel>()
+                    val detailViewModel = hiltViewModel<DetailViewModel>()
+                    NavGraph(
+                        navController = navController,
+                        homeViewModel = homeViewModel,
+                        detailViewModel = detailViewModel
+                    )
                 }
             }
         }
