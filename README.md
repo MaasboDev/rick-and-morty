@@ -53,7 +53,7 @@ The following libraries are used in the project:
 
 ## Screenshots
 
-Screenshot 1  
+![Image](app/src/main/res/drawable/homescreen.png)  
 Screenshot 2  
 
 ## License
