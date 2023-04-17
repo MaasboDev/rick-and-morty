@@ -25,7 +25,7 @@ Retrofit and Moshi libraries to consume the API and parse the JSON response.
 The following features are implemented in the application:
 
     Display a list of characters from the API.
-    Show details of each character such as name, status, species, gender, and image.
+    Show details of each character such as name, status, species, gender, origin, location and image.
 
 ## Architecture
 
@@ -47,9 +47,14 @@ The following API endpoints are used in the project:
 
 The following libraries are used in the project:
 
+* **Arrow**: Arrow is composed of different libraries that greatly improve your developer experience using Kotlin, here is used to efficiently handling errors.
+* **Hilt**: Hilt provides a standard way to incorporate Dagger dependency injection into an Android application.
+* **Mockk**: For testing.
+* **Moshi**: A modern JSON library for Android, Java and Kotlin. It makes it easy to parse JSON into Java and Kotlin classes.
+* **Navigation Component**: Provides support for Jetpack Compose applications. You can navigate between composables while taking advantage of the Navigation component’s infrastructure and features.
+* **Paging**: The Paging library helps you load and display pages of data from a larger dataset from local storage or over network.
 * **Retrofit**: A type-safe HTTP client for Android and Java.
-* **Moshi**: A modern JSON library for Android, Java and Kotlin. It makes it easy to parse JSON into
-  Java and Kotlin classes.
+* **Room**: Provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
 
 ## Screenshots
 

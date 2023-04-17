@@ -5,7 +5,7 @@ import com.maasbodev.rickandmorty.data.local.toCharacter
 import com.maasbodev.rickandmorty.data.local.toCharacterDbModel
 import com.maasbodev.rickandmorty.data.remote.model.CharacterDto
 import com.maasbodev.rickandmorty.data.remote.model.OriginLocationObject
-import org.amshove.kluent.shouldBeEqualTo
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class CharacterDbModelMapperTest {
@@ -16,20 +16,20 @@ class CharacterDbModelMapperTest {
         val originLocationObject = buildOriginLocationObject()
         val result = characterDto.toCharacterDbModel()
 
-        result.id shouldBeEqualTo ID
-        result.name shouldBeEqualTo NAME
-        result.status shouldBeEqualTo STATUS
-        result.species shouldBeEqualTo SPECIES
-        result.type shouldBeEqualTo TYPE
-        result.gender shouldBeEqualTo GENDER
-        result.originName shouldBeEqualTo originLocationObject.name
-        result.originUrl shouldBeEqualTo originLocationObject.url
-        result.locationName shouldBeEqualTo originLocationObject.name
-        result.locationUrl shouldBeEqualTo originLocationObject.url
-        result.image shouldBeEqualTo IMAGE
-        result.episode shouldBeEqualTo EPISODE
-        result.url shouldBeEqualTo URL
-        result.created shouldBeEqualTo CREATED
+        assertEquals(result.id, ID)
+        assertEquals(result.name, NAME)
+        assertEquals(result.status, STATUS)
+        assertEquals(result.species, SPECIES)
+        assertEquals(result.type, TYPE)
+        assertEquals(result.gender, GENDER)
+        assertEquals(result.originName, originLocationObject.name)
+        assertEquals(result.originUrl, originLocationObject.url)
+        assertEquals(result.locationName, originLocationObject.name)
+        assertEquals(result.locationUrl, originLocationObject.url)
+        assertEquals(result.image, IMAGE)
+        assertEquals(result.episode, EPISODE)
+        assertEquals(result.url, URL)
+        assertEquals(result.created, CREATED)
     }
 
     @Test
@@ -38,20 +38,20 @@ class CharacterDbModelMapperTest {
         val originLocationObject = buildOriginLocationObject()
         val result = characterDbModel.toCharacter()
 
-        result.id shouldBeEqualTo ID
-        result.name shouldBeEqualTo NAME
-        result.status shouldBeEqualTo STATUS
-        result.species shouldBeEqualTo SPECIES
-        result.type shouldBeEqualTo TYPE
-        result.gender shouldBeEqualTo GENDER
-        result.originName shouldBeEqualTo originLocationObject.name
-        result.originUrl shouldBeEqualTo originLocationObject.url
-        result.locationName shouldBeEqualTo originLocationObject.name
-        result.locationUrl shouldBeEqualTo originLocationObject.url
-        result.image shouldBeEqualTo IMAGE
-        result.episode shouldBeEqualTo EPISODE
-        result.url shouldBeEqualTo URL
-        result.created shouldBeEqualTo CREATED
+        assertEquals(result.id, ID)
+        assertEquals(result.name, NAME)
+        assertEquals(result.status, STATUS)
+        assertEquals(result.species, SPECIES)
+        assertEquals(result.type, TYPE)
+        assertEquals(result.gender, GENDER)
+        assertEquals(result.originName, originLocationObject.name)
+        assertEquals(result.originUrl, originLocationObject.url)
+        assertEquals(result.locationName, originLocationObject.name)
+        assertEquals(result.locationUrl, originLocationObject.url)
+        assertEquals(result.image, IMAGE)
+        assertEquals(result.episode, EPISODE)
+        assertEquals(result.url, URL)
+        assertEquals(result.created, CREATED)
     }
 
     private fun buildCharacterDto() = CharacterDto(

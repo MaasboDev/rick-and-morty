@@ -27,6 +27,7 @@ import com.maasbodev.rickandmorty.R
 import com.maasbodev.rickandmorty.presentation.theme.FontSize.f16
 import com.maasbodev.rickandmorty.presentation.theme.FontSize.f32
 import com.maasbodev.rickandmorty.presentation.theme.Spacing.s16
+import com.maasbodev.rickandmorty.presentation.theme.Spacing.s8
 
 @Composable
 fun DetailScreen(detailViewModel: DetailViewModel) {
@@ -46,44 +47,52 @@ fun DetailScreen(detailViewModel: DetailViewModel) {
                     model = viewState.character.image,
                     contentDescription = viewState.character.name,
                     modifier = Modifier
-                        .aspectRatio(1f)
+                        .aspectRatio(1f),
                 )
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = viewState.character.name,
                     fontSize = f32,
                     fontStyle = FontStyle.Italic,
                     fontWeight = FontWeight.Bold,
                 )
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = "${viewState.character.status} - ${viewState.character.species}",
                     color = Color.Gray,
                 )
                 Spacer(modifier = Modifier.height(s16))
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = "Type: ${viewState.character.type.ifEmpty { "?" }}",
                     fontSize = f16,
                 )
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = "Gender: ${viewState.character.gender}",
                     color = Color.Gray,
                 )
                 Spacer(modifier = Modifier.height(s16))
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = "Known origin:",
                     fontSize = f16,
                     color = Color.Gray,
                 )
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = viewState.character.originName,
                     fontSize = f16,
                 )
                 Spacer(modifier = Modifier.height(s16))
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = "Last known location:",
                     fontSize = f16,
                     color = Color.Gray,
                 )
                 Text(
+                    modifier = Modifier.padding(start = s8),
                     text = viewState.character.locationName,
                     fontSize = f16,
                 )

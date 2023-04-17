@@ -44,6 +44,8 @@ android {
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += '/META-INF/LICENSE.md'
+            excludes += '/META-INF/LICENSE-notice.md'
         }
     }
 }
@@ -64,7 +66,6 @@ dependencies {
     implementation libs.compose.activity
     implementation libs.compose.material
     implementation libs.compose.material3
-    implementation libs.kluent.kluent
     implementation libs.kotlin.coroutines.test
     implementation libs.lifecycle.runtime
     implementation libs.lifecycle.viewmodel
